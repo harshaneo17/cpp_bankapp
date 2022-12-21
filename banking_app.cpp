@@ -83,8 +83,11 @@ void UserInputSwitch(){
     case 5:
         CreateNewAccount();
         break;
-    default:
+    case 6:
         Quit();
+        break;    
+    default:
+        std::cout << "Please enter a valid response" << std::endl;
         break;
     }
 }
