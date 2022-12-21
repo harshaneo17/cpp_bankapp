@@ -1,6 +1,12 @@
 #include <iostream>
 
 int user_input;
+int balance = 0;
+std::string name;
+std::string account_number;
+std::string password;
+std::string user_decision;
+int& base_balance = balance;
 
 void GuiScreen(){
     std::cout << "                --------------------                " << std::endl;
@@ -22,11 +28,8 @@ void GuiScreen(){
 }
 
 void CreateNewAccount(){
-    std::string name;
-    std::string account_number;
-    std::string password;
-    std::string user_decision;
 
+    
     std::cout << "         NEW ACCOUNT         " << std::endl;
     std::cout << "         ENTER YOUR NAME     \n" << "->>" << std::endl;
     std::cin >> name;
@@ -38,6 +41,7 @@ void CreateNewAccount(){
     std::cin >> user_decision;
     if (user_decision == "y"){
          std::cout << "thank you for creating a new account" << std::endl;
+         base_balance = 100;
     }
     else if(user_decision == "n"){
         CreateNewAccount();
@@ -45,6 +49,20 @@ void CreateNewAccount(){
     else{
          std::cout << "please enter y or n";
     } 
+}
+
+void DisplayBalance(){
+     if (balance){
+             std::cout << "-----BANK BALANCE-----\n" << name << "\n" << account_number << "\n" << password << "\n" << std::endl;
+             std::cout << "-----BALANCE IN THE ACCOUNT-----\n" << balance << std::endl;        
+     }
+     else{
+       std::cout << "Please create a new account" << std::endl;
+     }
+}
+
+void Quit(){
+    std::cout << "HAVE A NICE DAY" << std::endl;
 }
 
 void UserInputSwitch(){
@@ -57,20 +75,33 @@ void UserInputSwitch(){
         //insert code
         break;
     case 3:
-        //insert code
+        DisplayBalance();
         break;
     case 4:
         //insert code
         break;
     case 5:
-        //insert code
+        CreateNewAccount();
         break;
     default:
-        std::cout << "         THANK YOU FOR USING OUR APPLICATION. HAVE A NICE DAY         " <<std::endl;
+        Quit();
         break;
     }
 }
 int main(){
+    std::string user_input_main;
     GuiScreen();
     UserInputSwitch();
+    std::cout << "------------------------REDIRECT TO MAIN MENU----------------------------" << std::endl;
+    std::cout << "-----------------------------y OR n--------------------------------------" << std::endl;
+    std::cin >> user_input_main;
+    if (user_input_main=="y"){
+        main();
+    }
+    else if(user_input_main=="n"){
+        Quit();
+    }
+    else {
+        std::cout << "Please enter a valid response" << std::endl;
+    }
 }
