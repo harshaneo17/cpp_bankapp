@@ -7,6 +7,7 @@ std::string account_number;
 std::string password;
 std::string user_decision;
 int& base_balance = balance;
+int withdraw_balance;
 
 void GuiScreen(){
     std::cout << "                --------------------                " << std::endl;
@@ -65,6 +66,39 @@ void Quit(){
     std::cout << "HAVE A NICE DAY" << std::endl;
 }
 
+void WithdrawMoney(){
+    std::string user_password;
+    int check_positive;
+    if (balance){
+             std::cout << "-----BALANCE IN THE ACCOUNT-----\n" << balance << std::endl;
+             std::cout << "-----please enter your password-----\n";
+             std::cin >> user_password;
+             if (user_password == password){
+                 std::cout << "Enter the money you would like to withdraw" << std::endl;
+                 std::cin >> withdraw_balance;
+                 check_positive = withdraw_balance - withdraw_balance;
+                 
+                if (withdraw_balance > balance){
+                    std::cout << "Sorry insufficient funds" << std::endl;
+                    }
+                else if(check_positive == 0){
+                    std::cout << "enter positive number";
+                }    
+                else{
+                    balance = balance - withdraw_balance;
+                    std::cout << "Balance after transaction\n" << balance << std::endl;
+                    }     
+             }
+             else{
+                std::cout << "PLEASE ENTER CORRECT PASSWORD" << std::endl;
+             }
+                
+     }
+     else{
+       std::cout << "Please create a new account" << std::endl;
+     }
+}
+
 void UserInputSwitch(){
     switch (user_input)
     {
@@ -72,7 +106,7 @@ void UserInputSwitch(){
         CreateNewAccount();
         break;
     case 2:
-        //insert code
+        WithdrawMoney();
         break;
     case 3:
         DisplayBalance();
