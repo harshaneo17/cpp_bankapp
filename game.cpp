@@ -18,7 +18,9 @@ void Board(){
 
 
 int main(){
+    
     while(true)
-      system("cls");
-      Board();
+     system("cls");
+     Board();
+    
 }
