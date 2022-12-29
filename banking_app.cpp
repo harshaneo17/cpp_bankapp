@@ -148,7 +148,7 @@ void UserInputSwitch(){
         DisplayBalance();
         break;
     case 4:
-        WithdrawMoney();
+        DepositBalance();
         break;
     case 5:
         CreateNewAccount();
