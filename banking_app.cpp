@@ -3,7 +3,7 @@ General ideas
 
     * Wrap account functionality in class. So you can do account.withdraw(40), account.deposit(20), account.show_balance() etc.
     * Keep key information like balence inside the object created from this class rather than having it as a global variable.
-    * Keep indentation consistant
+    * Keep indentation consistant. Does not really matter what style you use as long as it is consistent accross the project.
     * UserInputSwitch is nice and straightforward, as is the GUIScreen.
     * Perhaps try have some test cases for the options? e.g. 7--> is a test and that goes through the addition, withdrawl, display 
       etc and see if the value is correct after calling these. e.g.
@@ -14,9 +14,10 @@ General ideas
         cout << "test failed. please check withdraw function" << endl;
       }
 
-    * startup check wrapped in a while loop is nice.
+    * Startup check wrapped in a while loop is nice approach, means you can just flip that to false to exit the program.
     * Try and stay away from global variables when it comes to account. If you try out classes and some tests, that would be a good next step.
     * Some good checks with messaging, letting the user know if there are any issues and taking relevant action.
+    * Not sure about int& base_balance = balance;. This stood out a bit to me. Was this a pointer test?
 */
 
 
