@@ -1,3 +1,25 @@
+/* 
+General ideas
+
+    * Wrap account functionality in class. So you can do account.withdraw(40), account.deposit(20), account.show_balance() etc.
+    * Keep key information like balence inside the object created from this class rather than having it as a global variable.
+    * Keep indentation consistant
+    * UserInputSwitch is nice and straightforward, as is the GUIScreen.
+    * Perhaps try have some test cases for the options? e.g. 7--> is a test and that goes through the addition, withdrawl, display 
+      etc and see if the value is correct after calling these. e.g.
+
+      balance = 100
+      withdraw(20)
+      if (balance != 80) {
+        cout << "test failed. please check withdraw function" << endl;
+      }
+
+    * startup check wrapped in a while loop is nice.
+    * Try and stay away from global variables when it comes to account. If you try out classes and some tests, that would be a good next step.
+    * Some good checks with messaging, letting the user know if there are any issues and taking relevant action.
+*/
+
+
 #include <iostream>
 
 int user_input;
@@ -112,6 +134,8 @@ void DepositBalance(){
              if (user_password == password){
                  std::cout << "Enter the money you would like to deposit" << std::endl;
                  std::cin >> deposit_balance;
+
+                 // Interesting check, not seen it done this way. Would have gone for: deposit_balance >= 0.
                  check_positive = deposit_balance - deposit_balance;
                  
                 if (deposit_balance > 500){
@@ -148,7 +172,8 @@ void UserInputSwitch(){
         DisplayBalance();
         break;
     case 4:
-        WithdrawMoney();
+        // Change to DepositBalance()
+        WithdrawMoney(); 
         break;
     case 5:
         CreateNewAccount();
