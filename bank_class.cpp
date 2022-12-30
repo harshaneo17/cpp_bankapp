@@ -143,8 +143,7 @@ void DepositBalance(){
 
 };
 
-void UserInputSwitch(){
-UserDetails details;
+void UserInputSwitch(UserDetails &details){
     switch (user_input)
     {
     case 1:
@@ -172,8 +171,10 @@ UserDetails details;
 }
 int main(){
     // bool user_input_main;
+    UserDetails details;
+    
     while(startup==true){
         GuiScreen();
-        UserInputSwitch();
+        UserInputSwitch(details);
         }
     }
