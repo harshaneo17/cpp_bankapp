@@ -78,7 +78,6 @@ void Quit(){
 
 void WithdrawMoney(){
     std::string user_password;
-    int check_positive;
     if (balance){
              std::cout << "-----BALANCE IN THE ACCOUNT-----\n" << balance << std::endl;
              std::cout << "-----please enter your password-----\n";
@@ -86,12 +85,11 @@ void WithdrawMoney(){
              if (user_password == password){
                  std::cout << "Enter the money you would like to withdraw" << std::endl;
                  std::cin >> withdraw_balance;
-                 check_positive = withdraw_balance - withdraw_balance;
-             
+
                 if (withdraw_balance > balance){
                     std::cout << "Sorry insufficient funds" << std::endl;
                 }    
-                else if(check_positive == 0){
+                else if(withdraw_balance <= 0){
                     std::cout << "enter positive number";
                 }    
                 else{
@@ -111,7 +109,6 @@ void WithdrawMoney(){
 
 void DepositBalance(){
     std::string user_password;
-    int check_positive;
     if (balance){
              std::cout << "-----BALANCE IN THE ACCOUNT-----\n" << balance << std::endl;
              std::cout << "-----please enter your password-----\n";
@@ -119,12 +116,11 @@ void DepositBalance(){
              if (user_password == password){
                  std::cout << "Enter the money you would like to deposit" << std::endl;
                  std::cin >> deposit_balance;
-                 check_positive = deposit_balance - deposit_balance;
-                 
+
                 if (deposit_balance > 500){
                     std::cout << "DEPOSIT LIMIT 500 ONLY" << std::endl;
                 }    
-                else if(check_positive == 0){
+                else if(deposit_balance <= 0){
                     std::cout << "enter positive number";
                 }    
                 else{
