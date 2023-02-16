@@ -7,11 +7,15 @@ const int width = 30;
 const int height = 22;
 std::string hero_space = " ";
 std::string user_response;
+bool game = true;
 
 void AppendSpace(){
      //This is to control hero and add spaces to string space
      if(user_response == "D" || user_response == "d"){
           hero_space = hero_space + " ";
+     }
+     else if(user_response == "q" || user_response == "Q"){
+          game = false;
      }
 }
 
@@ -22,7 +26,7 @@ void ControlHero(){
 
 void Board(){
      
-     while(true){
+     while(game){
        
        system("cls");
            
